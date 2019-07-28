@@ -21,12 +21,6 @@ const bookRoute = require("./routes/book");
 app.use("/user", userRoute);
 app.use("/book", bookRoute);
 
-// Add book to user
-// UserBook.create({
-//   id_usuario: 1,
-//   id_livro: 1
-// });
-
 app.listen(process.env.SERVER_PORT, () =>
   console.log(`Server listening on ${process.env.SERVER_PORT}`)
 );
