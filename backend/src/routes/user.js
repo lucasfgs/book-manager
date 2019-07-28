@@ -89,11 +89,23 @@ route.get("/myBooks/:id", async (req, res) => {
 
 route.post("/addBook", async (req, res) => {
   const { id_usuario, id_livro } = req.body;
-  let savedBook = UserBook.create({
-    id_usuario,
-    id_livro
+
+  let verifyBook = await UserBook.findAll({
+    attributes: ["id_usuario", "id_livro"],
+    where: { id_usuario, id_livro }
   });
-  res.send(savedBook);
+
+  if (verifyBook.length > 0) res.status(400).send("User alredy have this book");
+
+  try {
+    let savedBook = await UserBook.create({
+      id_usuario,
+      id_livro
+    });
+    res.send(savedBook);
+  } catch (error) {
+    res.status(400).send("Invalid data");
+  }
 });
 
 route.post("/deleteBook", async (req, res) => {
