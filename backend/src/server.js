@@ -14,30 +14,17 @@ app.use(cors());
 // const authRoute = require("./routes/auth");
 // const testRoute = require("./routes/testMiddleware");
 const userRoute = require("./routes/user");
+const bookRoute = require("./routes/book");
 
 // app.use("/auth", authRoute);
 // app.use("/test", testRoute);
 app.use("/user", userRoute);
+app.use("/book", bookRoute);
 
-UserBook.create({
-  id_usuario: 1,
-  id_livro: 1
-});
-
-// Create Book
-// Book.create({
-//   nome: "Anjos e demonios",
-//   autor: "Dan Brown",
-//   genero: "Suspense"
-// });
-
-// Create user
-// User.create({
-//   nome: "Teste",
-//   email: "asd@asd",
-//   senha: "qwdqw"
-// }).then(user => {
-//   console.log(user);
+// Add book to user
+// UserBook.create({
+//   id_usuario: 1,
+//   id_livro: 1
 // });
 
 app.listen(process.env.SERVER_PORT, () =>
