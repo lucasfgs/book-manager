@@ -2,14 +2,14 @@ const app = require("express").Router();
 const User = require("../model/User");
 const jwt = require("jsonwebtoken");
 
-const { decryptPassword } = require("../util");
+const { decryptPassword } = require("../utils");
 
 app.post("/login", async (req, res) => {
-  let user = await User.findOne({ email: req.body.email });
+  let user = await User.findAll({ where: { email: req.body.email } });
   if (user) {
-    let token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-    if (decryptPassword(req.body.password, user.password))
-      res.status(200).json({ token, user_id: user._id });
+    let token = jwt.sign({ id: user[0].id_usuario }, process.env.JWT_SECRET);
+    if (decryptPassword(req.body.senha, user[0].senha))
+      res.status(200).json({ token, user_id: user[0].id_usuario });
     else
       res.status(400).json({
         error: {

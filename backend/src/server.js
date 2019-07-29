@@ -1,9 +1,6 @@
 const app = require("express")();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const User = require("./model/User");
-const Book = require("./model/Book");
-const UserBook = require("./model/UserBook");
 
 // Express middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -11,13 +8,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Route middlewares
-// const authRoute = require("./routes/auth");
-// const testRoute = require("./routes/testMiddleware");
+const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
 const bookRoute = require("./routes/book");
 
-// app.use("/auth", authRoute);
-// app.use("/test", testRoute);
+app.use("/auth", authRoute);
 app.use("/user", userRoute);
 app.use("/book", bookRoute);
 
