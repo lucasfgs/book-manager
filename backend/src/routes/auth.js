@@ -5,8 +5,8 @@ const jwt = require("jsonwebtoken");
 const { decryptPassword } = require("../utils");
 
 app.post("/login", async (req, res) => {
-  let user = await User.findAll({ where: { email: req.body.email } });
-  if (user) {
+  try {
+    let user = await User.findAll({ where: { email: req.body.email } });
     let token = jwt.sign({ id: user[0].id_usuario }, process.env.JWT_SECRET);
     if (decryptPassword(req.body.senha, user[0].senha))
       res.status(200).json({ token, user_id: user[0].id_usuario });
@@ -16,12 +16,13 @@ app.post("/login", async (req, res) => {
           message: "Incorrect password"
         }
       });
-  } else
+  } catch {
     res.status(400).json({
       error: {
         message: "E-mail not found"
       }
     });
+  }
 });
 
 app.post("/verify", (req, res) => {
