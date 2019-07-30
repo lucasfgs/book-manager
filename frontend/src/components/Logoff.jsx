@@ -1,14 +1,25 @@
 import React from "react";
-
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Logoff = props => {
+import { removeUser } from "../actions";
+
+const Logoff = ({ history, removeUser }) => {
   const logoff = () => {
     localStorage.removeItem("token");
-    props.history.push("/login");
+    console.log(removeUser);
+    removeUser();
+    history.push("/login");
   };
 
   return <button onClick={logoff}>Logoff</button>;
 };
 
-export default withRouter(Logoff);
+const mapDispatchToProps = dispatch => ({
+  removeUser: () => dispatch(removeUser())
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(withRouter(Logoff));

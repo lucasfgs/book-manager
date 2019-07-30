@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import verifyToken from "../../utils/VerifyToken";
 import Logoff from "../../components/Logoff";
+import { Container } from "./style";
 
 const Admin = props => {
   useEffect(() => {
@@ -15,12 +16,7 @@ const Admin = props => {
     validateToken();
   }, [props.history]);
 
-  return (
-    <div>
-      <p>Olá você é um administrador!</p>
-      <Logoff />
-    </div>
-  );
+  return <Container />;
 };
 
 export default Admin;

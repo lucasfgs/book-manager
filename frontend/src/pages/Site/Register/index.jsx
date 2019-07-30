@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import RegisterForm from "../../components/RegisterForm";
+import RegisterForm from "../../../components/RegisterForm";
 
 const Register = () => {
   const API_URL = "http://localhost:4000/auth/register";

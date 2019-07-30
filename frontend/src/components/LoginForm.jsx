@@ -1,6 +1,6 @@
 import React from "react";
 
-function Login(props) {
+const Login = props => {
   return (
     <div className="login-form">
       {props.error && <span>Erro ao realizar login</span>}
@@ -17,7 +17,7 @@ function Login(props) {
         <input
           type="password"
           placeholder="Password"
-          name="password"
+          name="senha"
           id="password"
           onChange={props.handlePassword}
         />
@@ -25,6 +25,6 @@ function Login(props) {
       </form>
     </div>
   );
-}
+};
 
 export default Login;
