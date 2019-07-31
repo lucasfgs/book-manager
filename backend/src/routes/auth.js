@@ -7,9 +7,19 @@ const { decryptPassword } = require("../utils");
 app.post("/login", async (req, res) => {
   try {
     let user = await User.findAll({ where: { email: req.body.email } });
-    let token = jwt.sign({ id: user[0].id_usuario }, process.env.JWT_SECRET);
+    let token = jwt.sign(
+      { id: user[0].id_usuario, nome: user[0].nome, email: user[0].email },
+      process.env.JWT_SECRET
+    );
     if (decryptPassword(req.body.senha, user[0].senha))
-      res.status(200).json({ token, user_id: user[0].id_usuario });
+      res.status(200).json({
+        token,
+        user: {
+          user_id: user[0].id_usuario,
+          nome: user[0].nome,
+          email: user[0].email
+        }
+      });
     else
       res.status(400).json({
         error: {
@@ -26,7 +36,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/verify", (req, res) => {
-  const token = req.header("auth-token");
+  const token = req.body.token;
   if (!token) return res.status(401).send("Access denied");
 
   try {
