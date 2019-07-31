@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import api from "../../../services/api";
-import { connect } from "react-redux";
 
-import { addUser } from "../../../actions";
 import LoginForm from "../../../components/LoginForm";
 
-function Login({ history, addUser }) {
+function Login({ history }) {
   const API_URL = "auth/login";
 
   const [login, setLogin] = useState({ email: "", senha: "", error: false });
@@ -24,11 +22,6 @@ function Login({ history, addUser }) {
       if (resp.status === 200) {
         localStorage.setItem("token", resp.data.token);
         console.log(resp.data.user);
-        addUser(
-          resp.data.user.user_id,
-          resp.data.user.nome,
-          resp.data.user.email
-        );
         history.push("/dashboard");
       }
     } catch {
@@ -48,11 +41,4 @@ function Login({ history, addUser }) {
   );
 }
 
-const mapDispatchToProps = dispatch => ({
-  addUser: (userId, nome, email) => dispatch(addUser(userId, nome, email))
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Login);
+export default Login;

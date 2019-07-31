@@ -1,22 +1,39 @@
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
 import verifyToken from "../../utils/VerifyToken";
 import Logoff from "../../components/Logoff";
 import { Container } from "./style";
+import Header from "../../components/DashboardHeader";
+import { addUser } from "../../actions";
 
-const Admin = props => {
+const Admin = ({ history, addUser }) => {
   useEffect(() => {
     const validateToken = async () => {
       let validToken = await verifyToken();
-      if (!validToken) props.history.push("/login");
+      if (!validToken) history.push("/login");
 
-      console.log(validToken);
+      addUser(validToken.data.id, validToken.data.nome, validToken.data.email);
+
+      console.log("token", validToken);
     };
 
     validateToken();
-  }, [props.history]);
+  }, [history]);
 
-  return <Container />;
+  return (
+    <Container>
+      <Header />
+      <Logoff />
+    </Container>
+  );
 };
 
-export default Admin;
+const mapDispatchToProps = dispatch => ({
+  addUser: (userId, nome, email) => dispatch(addUser(userId, nome, email))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Admin);

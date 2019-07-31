@@ -1,10 +1,10 @@
 import React from "react";
-import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Dashboard from "./pages/Dashboard";
 import Site from "./pages/Site";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as Routes from "./constants/routes";
+import GlobalStyle from "./styles/GobalStyle";
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
           <Route path={Routes.DASHBOARD} component={Dashboard} />
         </div>
       </Switch>
+      <GlobalStyle />
     </Router>
   );
 }
