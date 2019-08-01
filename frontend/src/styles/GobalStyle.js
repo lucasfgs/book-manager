@@ -8,8 +8,8 @@ export default createGlobalStyle`
 }
 
 #root {
+  @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
   height: 100%;
-  background: #000;
 }
 
 `;

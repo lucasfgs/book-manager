@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
   position: relative;
   nav {
     width: 100%;

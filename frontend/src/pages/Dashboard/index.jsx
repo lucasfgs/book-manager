@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import verifyToken from "../../utils/VerifyToken";
-import { Container } from "./style";
+import { Container } from "./styles";
 import Header from "../../components/DashboardHeader";
 import { addUser } from "../../actions";
+import Home from "./Home";
 
 const Admin = ({ history, addUser }) => {
   useEffect(() => {
@@ -16,11 +17,12 @@ const Admin = ({ history, addUser }) => {
     };
 
     validateToken();
-  }, [history]);
+  }, [history, addUser]);
 
   return (
     <Container>
       <Header />
+      <Home />
     </Container>
   );
 };

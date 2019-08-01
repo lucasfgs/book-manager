@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
 
+import api from "../../../services/api";
 import LoginForm from "../../../components/LoginForm";
+import background from "../../../assets/image/LoginPage/bg.jpg";
+
+import { Container } from "./styles";
 
 function Login({ history }) {
   const API_URL = "auth/login";
@@ -30,14 +33,15 @@ function Login({ history }) {
   };
 
   return (
-    <div>
+    <Container>
+      <img src={background} alt="Background" />
       <LoginForm
         handleEmail={setValues}
         handlePassword={setValues}
         onSubmit={onSubmit}
         error={login.error}
       />
-    </div>
+    </Container>
   );
 }
 

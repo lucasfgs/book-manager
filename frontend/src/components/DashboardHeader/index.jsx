@@ -7,7 +7,7 @@ import logo from "../../assets/image/logo.svg";
 import avatar from "../../assets/image/avatar.svg";
 import UserDropdown from "../UserDropdown";
 
-import { MdArrowDropDown } from "react-icons/md";
+import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
 const Header = ({ user }) => {
   const [visibility, setVisibility] = useState(false);
@@ -35,7 +35,12 @@ const Header = ({ user }) => {
         <Profile>
           <img src={avatar} alt="User avatar" className="userImage" />
           <span onClick={toggleVisibility}>
-            {user.nome} <MdArrowDropDown className="dropDownIcon" size={30} />
+            {user.nome}{" "}
+            {visibility ? (
+              <MdArrowDropUp className="dropDownIcon" size={30} />
+            ) : (
+              <MdArrowDropDown className="dropDownIcon" size={30} />
+            )}
           </span>
           <UserDropdown visiblity={visibility} />
         </Profile>

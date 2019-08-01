@@ -1,29 +1,29 @@
 import React from "react";
 
+import { Container } from "./styles";
+
 const Login = props => {
   return (
-    <div className="login-form">
-      {props.error && <span>Erro ao realizar login</span>}
+    <Container>
       <form onSubmit={props.onSubmit}>
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
-          placeholder="Email"
           name="email"
           id="email"
           onChange={props.handleEmail}
         />
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Senha</label>
         <input
           type="password"
-          placeholder="Password"
           name="senha"
           id="password"
           onChange={props.handlePassword}
         />
         <button type="submit">Login</button>
       </form>
-    </div>
+      {props.error && <span>Erro ao realizar login</span>}
+    </Container>
   );
 };
 
