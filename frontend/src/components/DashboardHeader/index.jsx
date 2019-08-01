@@ -1,14 +1,21 @@
-import React from "react";
-
-// import "../../../node_modules/react-dropdown/style.css";
-import { Container, Menu, Item, Profile, DropDown } from "./styles";
-import logo from "../../assets/image/logo.svg";
-import avatar from "../../assets/image/avatar.svg";
-
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
+// import "../../../node_modules/react-dropdown/style.css";
+import { Container, Menu, Item, Profile } from "./styles";
+import logo from "../../assets/image/logo.svg";
+import avatar from "../../assets/image/avatar.svg";
+import UserDropdown from "../UserDropdown";
+
+import { MdArrowDropDown } from "react-icons/md";
+
 const Header = ({ user }) => {
-  const dropDownOptions = ["Configurações", "Minha conta", "Logoff"];
+  const [visibility, setVisibility] = useState(false);
+
+  const toggleVisibility = () => {
+    visibility ? setVisibility(false) : setVisibility(true);
+  };
+
   console.log("Dashborad state:", user);
   return (
     <Container>
@@ -27,8 +34,10 @@ const Header = ({ user }) => {
         </Menu>
         <Profile>
           <img src={avatar} alt="User avatar" className="userImage" />
-          <span>{user.nome}</span>
-          <DropDown />
+          <span onClick={toggleVisibility}>
+            {user.nome} <MdArrowDropDown className="dropDownIcon" size={30} />
+          </span>
+          <UserDropdown visiblity={visibility} />
         </Profile>
       </nav>
     </Container>

@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-
+  position: relative;
   nav {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -25,7 +26,11 @@ export const Menu = styled.ul`
 `;
 
 export const Item = styled.li`
-  margin-right: 100px;
+  margin-right: 80px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   button {
     font-family: Roboto;
@@ -52,14 +57,23 @@ export const Profile = styled.div`
 
   .userImage {
     border-radius: 50px;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
+
   span {
+    display: flex;
+    align-items: center;
     font-family: Roboto;
     font-size: 18px;
     line-height: 21px;
-    margin-left: 7px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  span:hover,
+  .dropDownIcon:hover {
+    color: #ffaa00;
   }
 `;
 

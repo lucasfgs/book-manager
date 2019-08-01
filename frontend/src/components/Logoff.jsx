@@ -12,7 +12,7 @@ const Logoff = ({ history, removeUser }) => {
     history.push("/login");
   };
 
-  return <button onClick={logoff}>Logoff</button>;
+  return <button onClick={logoff}>Sair</button>;
 };
 
 const mapDispatchToProps = dispatch => ({
