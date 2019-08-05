@@ -25,7 +25,9 @@ route.post("/create", async (req, res) => {
     let book = await Book.create({
       nome: req.body.nome,
       autor: req.body.autor,
-      genero: req.body.genero
+      genero: req.body.genero,
+      sinopse: req.body.sinopse,
+      imgUrl: req.body.image
     });
     res.send(book);
   } catch (error) {

@@ -15,6 +15,12 @@ const Book = sequelize.define("livro", {
   },
   genero: {
     type: DataTypes.STRING
+  },
+  sinopse: {
+    type: DataTypes.STRING
+  },
+  imgUrl: {
+    type: DataTypes.STRING
   }
 });
 
