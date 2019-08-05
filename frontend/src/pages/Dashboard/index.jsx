@@ -22,7 +22,7 @@ const Admin = ({ history, addUser }) => {
   return (
     <Container>
       <Header />
-      <Home />
+      {/* <Home /> */}
     </Container>
   );
 };
