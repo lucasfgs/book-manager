@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 // import "../../../node_modules/react-dropdown/style.css";
 import { Container, Menu, Item, Profile } from "./styles";
 import logo from "../../assets/image/logo.svg";
 import avatar from "../../assets/image/avatar.svg";
 import UserDropdown from "../UserDropdown";
+import * as Route from "../../constants/routes";
 
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
@@ -23,13 +25,19 @@ const Header = ({ user }) => {
         <img src={logo} alt="logo" />
         <Menu>
           <Item>
-            <button href="#">Início</button>
+            <Link to={Route.DASHBOARD}>
+              <button>Início</button>
+            </Link>
           </Item>
           <Item>
-            <button href="#">Meus Livros</button>
+            <Link to={Route.MY_BOOKS}>
+              <button>Meus Livros</button>
+            </Link>
           </Item>
           <Item>
-            <button href="#">Buscar Livros</button>
+            <Link to={Route.SEARCH_BOOKS}>
+              <button>Buscar Livros</button>
+            </Link>
           </Item>
         </Menu>
         <Profile>
