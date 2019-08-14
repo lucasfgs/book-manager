@@ -18,7 +18,6 @@ const Header = ({ user }) => {
     visibility ? setVisibility(false) : setVisibility(true);
   };
 
-  console.log("Dashborad state:", user);
   return (
     <Container>
       <nav>

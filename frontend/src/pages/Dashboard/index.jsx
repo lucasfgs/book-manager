@@ -13,7 +13,6 @@ const Admin = ({ history, addUser }) => {
       let validToken = await verifyToken();
       if (!validToken) history.push("/login");
       addUser(validToken.data.id, validToken.data.nome, validToken.data.email);
-      console.log("token", validToken);
     };
 
     validateToken();

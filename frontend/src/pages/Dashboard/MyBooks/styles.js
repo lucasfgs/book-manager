@@ -13,3 +13,10 @@ export const Menu = styled.div`
   text-align: center;
   border-right: 1px solid #827e7e;
 `;
+
+export const Books = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

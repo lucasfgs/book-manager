@@ -2,23 +2,23 @@ import React from "react";
 
 import { Container, Title, Info } from "./styles";
 
-const ListBook = () => (
+const ListBook = ({ title, author, genere, sinopse, image }) => (
   <Container>
     <ul>
       <li>
-        <Title>Titulo do livro</Title>
+        <Title>{title}</Title>
       </li>
       <li>
-        <Info>Autor</Info>
+        <Info>{author}</Info>
       </li>
       <li>
-        <Info>Gênero</Info>
+        <Info>{genere}</Info>
       </li>
       <li>
-        <Info>Sinopse</Info>
+        <Info>{sinopse}</Info>
       </li>
     </ul>
-    <Info>Imagem</Info>
+    <img src={image} />
   </Container>
 );
 
