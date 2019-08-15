@@ -1,7 +1,7 @@
 import { ADD_USER, REMOVE_USER } from "../constants/ActionTypes";
 
 const INITIAL_STATE = {
-  userId: 0,
+  userId: null,
   nome: "",
   email: "",
   logged: false
