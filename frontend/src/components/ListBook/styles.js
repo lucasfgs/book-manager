@@ -15,6 +15,7 @@ export const Container = styled.div`
 
   ul {
     list-style: none;
+    width: 80%;
   }
 
   img {

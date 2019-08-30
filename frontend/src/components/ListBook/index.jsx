@@ -18,7 +18,7 @@ const ListBook = ({ title, author, genere, sinopse, image }) => (
         <Info>{sinopse}</Info>
       </li>
     </ul>
-    <img src={image} />
+    <img src={image} alt={title} />
   </Container>
 );
 
