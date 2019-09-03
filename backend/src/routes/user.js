@@ -74,7 +74,7 @@ route.get("/myBooks/:id", async (req, res) => {
       {
         model: Book,
         // Pass in the Product attributes that you want to retrieve
-        attributes: ["nome", "autor", "genero"],
+        attributes: ["nome", "autor", "genero", "sinopse", "imgUrl"],
         through: {
           // This block of code allows you to retrieve the properties of the join table
           model: UserBook,
