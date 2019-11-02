@@ -28,6 +28,6 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": ">=4.17.13",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.10.3"
+    "sequelize": "^5.15.1"
   }
 }
